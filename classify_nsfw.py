@@ -4,6 +4,7 @@ Copyright 2016 Yahoo Inc.
 Licensed under the terms of the 2 clause BSD license. 
 Please see LICENSE file in the project root for terms.
 """
+from urllib import request
 
 import numpy as np
 import os
@@ -102,7 +103,11 @@ def main(argv):
     )
 
     args = parser.parse_args()
-    image_data = open(args.input_file).read()
+    im_in = str(args.input_file)
+    if im_in.startswith("http"):
+        image_data = request.urlretrieve(im_in)
+    else:
+        image_data = open(args.input_file).read()
 
     # Pre-load caffe model.
     nsfw_net = caffe.Net(args.model_def,  # pylint: disable=invalid-name
