@@ -15,7 +15,7 @@ Since images and user generated content dominate the internet today, filtering n
 
 * The network takes in an image and gives output a probability (score between 0-1) which can be used to filter not suitable for work images. Scores < 0.2 indicate that the image is likely to be safe with high probability. Scores > 0.8 indicate that the image is highly probable to be NSFW. Scores in middle range may be binned for different NSFW levels. 
 * Depending on the dataset, usecase and types of images, we advise developers to choose suitable thresholds. Due to difficult nature of problem, there will be errors, which depend on use-cases / definition / tolerance of NSFW.  Ideally developers should create an evaluation set according to the definition of what is safe for their application, then fit a [ROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) curve to choose a suitable threshold if they are using the model as it is. 
-* ***Results can be improved by [fine-tuning](http://caffe.berkeleyvision.org/gathered/examples/finetune_flickr_style.html)*** the model for your dataset/ uscase / definition of NSFW. We do not provide any guarantees of accuracy of results. Please read the disclaimer below.
+* ***Results can be improved by [fine-tuning](http://caffe.berkeleyvision.org/gathered/examples/finetune_flickr_style.html)*** the model for your dataset/ use case / definition of NSFW. We do not provide any guarantees of accuracy of results. Please read the disclaimer below.
 * Using human moderation for edge cases in combination with the machine learned solution will help improve performance.
 
 #### Description of model
@@ -32,13 +32,13 @@ Please note that deeper networks, or networks with more filters can improve accu
 This Docker quickstart guide can be used for evaluating the model quickly with minimal dependency installation.
 
 Install Docker Engine
-- [Windows Installation](https://docs.docker.com/v1.8/installation/windows/)
-- [Mac OSX Installation](https://docs.docker.com/v1.8/installation/mac/)
-- [Ubuntu Installation](https://docs.docker.com/v1.8/installation/ubuntulinux/)
+- [Windows Installation](https://docs.docker.com/docker-for-windows/install/)
+- [Mac OSX Installation](https://docs.docker.com/docker-for-mac/install/)
+- [Ubuntu Installation](https://docs.docker.com/engine/installation/linux/ubuntu/)
 
 Build a caffe docker image (CPU) 
 ```
-docker build -t caffe:cpu https://raw.githubusercontent.com/BVLC/caffe/master/docker/standalone/cpu/Dockerfile
+docker build -t caffe:cpu https://raw.githubusercontent.com/BVLC/caffe/master/docker/cpu/Dockerfile
 ```
 
 Check the caffe installation
